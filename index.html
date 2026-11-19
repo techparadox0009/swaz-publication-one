@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swaz Publication — Publish Your Research with Confidence</title>
+<meta name="description" content="Swaz Publication helps researchers publish academic articles, journals, and books with professional editing, formatting, peer review and global indexing.">
+<meta name="theme-color" content="#2a78af">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+:root{--brand:#2a78af;--brand2:#18c7b4;--accent:#ffb547;--ink:#0b1b2b;--ink2:#51657a;--bg:#f6f9fc;--card:#fff;--line:#e3ebf3;--grad:linear-gradient(135deg,#2a78af,#18c7b4)}
+*{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden}
+h1,h2,h3,.brand{font-family:'Fraunces',Georgia,serif;letter-spacing:-.02em}
+.grad-text{background:linear-gradient(90deg,#2a78af,#18c7b4,#ffb547,#2a78af);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 8s linear infinite}
+@keyframes shift{to{background-position:300% 0}}
+/* progress + nav */
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:2000}
+.navbar{transition:.3s;padding:1rem 0}
+.navbar.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-shadow:0 6px 30px rgba(11,27,43,.08);padding:.55rem 0}
+.navbar .nav-link{font-weight:500;color:var(--ink);position:relative}
+.navbar .nav-link::after{content:"";position:absolute;left:.5rem;right:.5rem;bottom:2px;height:2px;background:var(--grad);transform:scaleX(0);transition:.3s}
+.navbar .nav-link:hover::after{transform:scaleX(1)}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;font-weight:800;box-shadow:0 8px 20px rgba(42,120,175,.35)}
+.btn-brand{background:var(--grad);color:#fff;border:0;border-radius:50px;padding:.8rem 1.8rem;font-weight:700;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(42,120,175,.35);transition:.3s}
+.btn-brand:hover{color:#fff;transform:translateY(-3px);box-shadow:0 16px 40px rgba(42,120,175,.45)}
+.btn-brand::before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);animation:shine 3.5s infinite}
+@keyframes shine{to{left:140%}}
+.btn-ghost{border:2px solid var(--brand);color:var(--brand);border-radius:50px;padding:.75rem 1.7rem;font-weight:700;transition:.3s}
+.btn-ghost:hover{background:var(--brand);color:#fff;transform:translateY(-3px)}
+/* hero */
+.hero{position:relative;min-height:100vh;padding:8rem 0 5rem;display:flex;align-items:center;background:radial-gradient(1200px 600px at 80% -10%,#d7ecf9,transparent),radial-gradient(900px 500px at -10% 40%,#d6f6f1,transparent),var(--bg)}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .container{position:relative;z-index:2}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;animation:float 12s ease-in-out infinite}
+.b1{width:340px;height:340px;background:#18c7b4;top:10%;right:5%}
+.b2{width:280px;height:280px;background:#2a78af;bottom:5%;left:-60px;animation-delay:-5s}
+@keyframes float{50%{transform:translate(30px,-40px) scale(1.1)}}
+.pill{display:inline-flex;gap:.5rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:50px;padding:.4rem 1rem;font-size:.85rem;font-weight:700;box-shadow:0 6px 20px rgba(11,27,43,.06)}
+.pill i{color:var(--brand2)}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:800;line-height:1.05}
+.lead{color:var(--ink2);font-size:1.15rem}
+@keyframes blink{50%{opacity:0}}
+.stage{position:relative;height:440px;perspective:1000px}
+.paper{position:absolute;background:#fff;border-radius:20px;padding:1.4rem;box-shadow:0 30px 60px rgba(11,27,43,.15);border:1px solid var(--line);transition:transform .2s}
+.p1{width:280px;left:8%;top:30px;transform:rotate(-6deg);animation:bob 6s ease-in-out infinite}
+.p2{width:250px;right:2%;top:150px;transform:rotate(5deg);animation:bob 7s ease-in-out infinite -2s}
+.p3{width:210px;left:25%;bottom:0;animation:bob 5s ease-in-out infinite -1s;background:var(--grad);color:#fff;border:0}
+@keyframes bob{50%{translate:0 -16px}}
+.line{height:8px;border-radius:6px;background:#e7eff6;margin:.55rem 0}
+.line.s{width:60%}.line.m{width:80%}
+.tag{font-size:.7rem;font-weight:800;color:var(--brand);background:#e6f2fa;padding:.2rem .6rem;border-radius:20px}
+.scroll-ind{position:absolute;bottom:20px;left:50%;width:26px;height:42px;border:2px solid var(--ink2);border-radius:20px;z-index:2}
+.scroll-ind::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:4px;background:var(--brand);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(14px);opacity:0}}
+/* sections */
+section{padding:6rem 0;position:relative}
+.eyebrow{color:var(--brand);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
+.sec-title{font-size:clamp(2rem,4vw,3rem);font-weight:800}
+.stats{background:var(--ink);color:#fff;border-radius:28px;padding:3rem 1rem;margin-top:-3rem;position:relative;z-index:5;box-shadow:0 30px 70px rgba(11,27,43,.3)}
+.stats .num{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;background:linear-gradient(90deg,#18c7b4,#ffb547);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats small{color:#9fb3c8}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:2rem;height:100%;position:relative;overflow:hidden;transition:.4s;transform-style:preserve-3d}
+.svc::before{content:"";position:absolute;inset:0;background:var(--grad);opacity:0;transition:.4s;z-index:0}
+.svc>*{position:relative;z-index:1;transition:.4s}
+.svc:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(42,120,175,.25)}
+.svc:hover::before{opacity:1}
+.svc:hover>*{color:#fff!important}
+.svc:hover .ico{background:rgba(255,255,255,.2);color:#fff}
+.ico{width:60px;height:60px;border-radius:18px;background:#e6f2fa;color:var(--brand);display:grid;place-items:center;font-size:1.7rem;margin-bottom:1.2rem}
+.svc p{color:var(--ink2);margin:0}
+/* process */
+.steps{position:relative}
+.steps::before{content:"";position:absolute;left:30px;top:0;bottom:0;width:3px;background:var(--line)}
+.fill{position:absolute;left:30px;top:0;width:3px;height:0;background:var(--grad);z-index:1}
+.step{display:flex;gap:1.5rem;margin-bottom:2.2rem;position:relative;z-index:2}
+.dot{flex:0 0 64px;height:64px;border-radius:50%;background:#fff;border:3px solid var(--line);display:grid;place-items:center;font-weight:800;font-family:'Fraunces',serif;color:var(--brand);transition:.4s}
+.step.on .dot{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 0 0 8px rgba(24,199,180,.2)}
+.step h3{font-size:1.3rem;margin:.6rem 0 .2rem}.step p{color:var(--ink2)}
+/* marquee */
+.marq{overflow:hidden;background:#fff;border-block:1px solid var(--line);padding:1.4rem 0;white-space:nowrap}
+.track{display:inline-flex;gap:3.5rem;animation:mq 30s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.track span{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:#9bb1c4}
+.track i{color:var(--brand2);margin-right:.6rem}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* books */
+.book{perspective:900px;text-align:center}
+.cover{height:260px;border-radius:6px 16px 16px 6px;padding:1.4rem;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;text-align:left;box-shadow:-8px 12px 30px rgba(11,27,43,.3);transform:rotateY(-18deg);transition:.5s;border-left:10px solid rgba(0,0,0,.25)}
+.book:hover .cover{transform:rotateY(0) translateY(-8px)}
+.cover b{font-family:'Fraunces',serif;font-size:1.3rem;line-height:1.15}
+.c1{background:linear-gradient(160deg,#2a78af,#0b3a5c)}.c2{background:linear-gradient(160deg,#18c7b4,#0b6b61)}.c3{background:linear-gradient(160deg,#ffb547,#c2601a)}.c4{background:linear-gradient(160deg,#7b61ff,#3a1f9c)}
+/* mission */
+.mission{background:linear-gradient(135deg,#7fb0fb 0%,#2a78af 55%,#18a7c7 100%);color:#fff;overflow:hidden}
+.mission::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 90% 10%,rgba(255,255,255,.25),transparent),radial-gradient(500px 300px at 0% 100%,rgba(24,199,180,.35),transparent)}
+.mission .container{position:relative}
+.glass{background:rgba(255,255,255,.18);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.4);border-radius:26px;padding:2.2rem;box-shadow:0 30px 60px rgba(11,27,43,.25)}
+.drive{list-style:none;padding:0;margin:0 0 1.6rem}
+.drive li{display:flex;gap:.8rem;align-items:flex-start;padding:.55rem 0;font-weight:500;border-bottom:1px dashed rgba(255,255,255,.3);transition:.3s}
+.drive li:last-child{border:0}
+.drive li:hover{transform:translateX(8px)}
+.drive i{color:var(--accent);animation:twinkle 2.4s ease-in-out infinite}
+.drive li:nth-child(2) i{animation-delay:.3s}.drive li:nth-child(3) i{animation-delay:.6s}.drive li:nth-child(4) i{animation-delay:.9s}.drive li:nth-child(5) i{animation-delay:1.2s}
+@keyframes twinkle{50%{transform:scale(1.4) rotate(20deg)}}
+.btn-light-pill{background:#fff;color:var(--ink);border-radius:50px;padding:.8rem 1.8rem;font-weight:700;transition:.3s;display:inline-block;text-decoration:none}
+.btn-light-pill:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.2);color:var(--brand)}
+/* indexing */
+.idx-wrap{overflow:hidden;padding:1.5rem 0 2rem;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.idx-track{display:flex;width:max-content;animation:mq 28s linear infinite}
+.idx-wrap:hover .idx-track{animation-play-state:paused}
+.idx{margin-right:1.5rem;flex:0 0 190px;width:190px;height:96px;background:#fff;border-radius:16px;display:grid;place-items:center;box-shadow:0 12px 30px rgba(11,27,43,.1);border:1px solid var(--line);transition:.35s;font-weight:800;text-align:center;line-height:1.1;padding:.5rem}
+.idx:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 22px 45px rgba(42,120,175,.25)}
+.idx small{display:block;font-size:.62rem;letter-spacing:.12em;font-weight:700}
+/* testimonials */
+.testi{background:radial-gradient(900px 400px at 50% 0,#13305a,transparent),#071326;color:#fff;overflow:hidden}
+.testi .sec-title{color:#2f80ff}
+.t-view{overflow:hidden;padding:1rem 0}
+.t-track{display:flex}
+.t-slide{flex:0 0 33.3333%;padding:0 .8rem}
+@media(max-width:991px){.t-slide{flex-basis:50%}}
+@media(max-width:700px){.t-slide{flex-basis:100%}}
+.t-card{height:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:1.8rem 1.6rem;text-align:center;position:relative;transition:.4s;backdrop-filter:blur(8px)}
+.t-card:hover{transform:translateY(-8px);border-color:#2f80ff;box-shadow:0 25px 50px rgba(47,128,255,.25)}
+.t-card .q{position:absolute;left:1.3rem;top:.8rem;font-size:2.6rem;color:#2f80ff;line-height:1}
+.avatar{width:62px;height:62px;border-radius:50%;margin:1rem auto;border:3px solid #2f80ff;display:grid;place-items:center;font-weight:800;font-size:1.2rem;color:#fff}
+.t-card p{font-style:italic;color:#c5d0e0;font-size:.95rem;min-height:110px}
+.stars{color:#ffc61a;letter-spacing:2px;margin:.5rem 0}
+.t-nav{display:flex;justify-content:center;align-items:center;gap:1rem;margin-top:1.5rem}
+.t-btn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;transition:.3s}
+.t-btn:hover{background:#2f80ff;border-color:#2f80ff;transform:scale(1.1)}
+.dots{display:flex;gap:.5rem}.dots button{width:10px;height:10px;border-radius:10px;border:0;background:rgba(255,255,255,.3);transition:.4s;padding:0}
+.dots button.on{width:30px;background:#2f80ff}
+/* footer extras */
+.soc{display:flex;gap:.6rem}
+.soc a{width:38px;height:38px;border-radius:50%;background:#16293d;display:grid;place-items:center;color:#fff;transition:.3s}
+.soc a:hover{background:var(--grad);transform:translateY(-4px);padding:0}
+.news{display:flex;gap:.5rem;flex-wrap:wrap}
+.news input{flex:1 1 150px;border-radius:50px;border:0;padding:.65rem 1rem;min-width:0}
+.news button{border:0;border-radius:50px;background:#0f5ea8;color:#fff;font-weight:700;padding:.65rem 1.3rem;transition:.3s}
+.news button:hover{background:var(--brand2);transform:translateY(-2px)}
+.fi{color:var(--brand2);margin-right:.5rem}
+/* cta + contact */
+.cta{background:var(--grad);border-radius:32px;color:#fff;padding:4rem 2rem;position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.12);right:-100px;top:-150px;animation:float 10s infinite}
+.form-control,.form-select{border-radius:14px;padding:.85rem 1rem;border:1.5px solid var(--line)}
+.form-control:focus,.form-select:focus{border-color:var(--brand);box-shadow:0 0 0 .25rem rgba(42,120,175,.15)}
+.contact-card{background:#fff;border-radius:28px;padding:2.2rem;box-shadow:0 30px 60px rgba(11,27,43,.08);border:1px solid var(--line)}
+footer{background:var(--ink);color:#9fb3c8;padding:4rem 0 2rem}
+footer a{color:#9fb3c8;text-decoration:none;transition:.3s}footer a:hover{color:#fff;padding-left:4px}
+footer h6{color:#fff}
+#top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:0;background:var(--grad);color:#fff;z-index:1500;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 25px rgba(42,120,175,.4)}
+#top.show{opacity:1;pointer-events:auto}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:991px){.stage{height:380px;margin-top:2rem}.p1{left:0}.p3{left:15%}.navbar-collapse{background:#fff;border-radius:16px;padding:1rem;margin-top:.6rem;box-shadow:0 20px 40px rgba(0,0,0,.1)}}
+@media(max-width:575px){section{padding:4rem 0}.p1{width:220px}.p2{width:200px;top:130px}.p3{width:180px}.stage{height:340px}.scroll-ind{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<script>
+function logoFail(i){var L=['https://swazpub.com/static/media/logo.fd0185711095bea49cf8.png','https://www.swazpub.com/logo192.png'],n=+i.dataset.n||0;
+if(n<L.length){i.dataset.n=n+1;i.src=L[n];return}
+i.onerror=null;var w=document.createElement('span');w.className='d-flex align-items-center gap-2';
+w.innerHTML='<span class="logo">S</span><span class="brand fw-bold fs-4 text-dark">Swaz <span style="color:#1f6fa8">Publication</span></span>';i.replaceWith(w)}
+</script>
+<style id="human">
+:root{--paper:#fbf6ee;--paper2:#f3ecdf;--ink:#14243a;--ink2:#556579;--brand:#1f6fa8;--brand2:#e8833a;--accent:#e8833a;--bg:#fbf6ee;--line:#e6dcc8;--peach:#fbd9c4;--sage:#dcebe4;--butter:#fbe7a6;--sky:#d3e7f6;--grad:linear-gradient(135deg,#1f6fa8,#14507c)}
+body{background:var(--paper);color:var(--ink)}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hand{font-family:'Caveat',cursive;font-weight:700;font-size:1.6rem;line-height:1.1;color:var(--accent)}
+.eyebrow{font-family:'Caveat',cursive;text-transform:none;letter-spacing:0;font-size:1.75rem;color:var(--accent);font-weight:700}
+.grad-text{color:var(--brand);-webkit-text-fill-color:currentColor;animation:none;background-color:transparent;-webkit-background-clip:border-box;background-clip:border-box;background-size:100% .36em;background-repeat:no-repeat;background-position:0 100%;padding-bottom:.16em;-webkit-box-decoration-break:clone;box-decoration-break:clone;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8C15 2 25 12 40 6S65 2 80 7 105 11 118 4' fill='none' stroke='%23e8833a' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E")}
+.site-logo{height:46px;width:auto;max-width:210px;object-fit:contain;display:block}
+.logo-chip{display:inline-block;background:#fff;border-radius:12px;padding:.5rem .9rem;margin-bottom:1rem}.logo-chip .site-logo{height:40px}
+.navbar.scrolled{background:rgba(251,246,238,.93);box-shadow:0 2px 0 var(--ink)}
+.navbar .nav-link::after{background:var(--accent)}
+.btn-brand,.btn-ghost,.btn-light-pill{border:2px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);transition:transform .2s,box-shadow .2s,background .2s}
+.btn-brand{background:var(--brand);color:#fff}.btn-brand::before{display:none}
+.btn-ghost{background:#fff;color:var(--ink)}.btn-ghost:hover{background:var(--butter);color:var(--ink)}
+.btn-light-pill{background:var(--ink);color:#fff}.btn-light-pill:hover{background:var(--accent);color:var(--ink)}
+.btn-brand:hover,.btn-ghost:hover,.btn-light-pill:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-brand:active,.btn-ghost:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+/* hero */
+.hero{background:radial-gradient(circle at 1px 1px,rgba(20,36,58,.13) 1.2px,transparent 0) 0 0/24px 24px,var(--paper)}
+#net,.blob{display:none}
+.pill{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}.pill i{color:var(--accent)}
+.lead{color:var(--ink2)}
+.paper{border-radius:6px;background:#fffdf8;border:1px solid var(--line);box-shadow:0 18px 40px rgba(20,36,58,.18)}
+.p1{width:290px;transform:rotate(-4deg)}.p2{transform:rotate(3deg)}
+.p3{background:var(--butter);color:var(--ink);border:0;border-radius:2px;width:210px;padding:1.5rem 1.2rem 1.3rem;transform:rotate(4deg)}
+.tape{position:absolute;top:-12px;left:50%;width:76px;height:22px;background:rgba(255,255,255,.65);border:1px solid rgba(0,0,0,.06);transform:translateX(-50%) rotate(-3deg)}
+.stamp{position:absolute;right:14px;bottom:14px;border:3px solid #c0392b;color:#c0392b;font-weight:800;letter-spacing:.12em;padding:.15rem .6rem;border-radius:6px;transform:rotate(-12deg);font-size:.85rem;opacity:.85}
+.line{background:#ece4d3}.tag{background:var(--sky);color:var(--brand)}
+.scroll-ind{border-color:var(--ink)}.scroll-ind::after{background:var(--accent)}
+/* stats */
+.stats{background:var(--ink);border-radius:20px;box-shadow:8px 8px 0 var(--accent)}
+.stats .num{background:none;-webkit-text-fill-color:currentColor;color:var(--butter)}
+/* services */
+#services .row{counter-reset:s}
+.svc{background:#fff;border:2px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+.svc::before{display:none}
+.svc::after{counter-increment:s;content:"0" counter(s);position:absolute;right:1.4rem;top:1rem;font-family:'Caveat',cursive;font-size:2.1rem;font-weight:700;color:#cfc3aa}
+.svc:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.svc:hover h3{color:var(--ink)!important}.svc:hover p{color:var(--ink2)!important}
+.ico{border-radius:16px;border:2px solid var(--ink)}
+#services .row>div:nth-child(6n+1) .ico{background:var(--peach);color:#b4531a}
+#services .row>div:nth-child(6n+2) .ico{background:var(--sage);color:#2d7a5f}
+#services .row>div:nth-child(6n+3) .ico{background:var(--butter);color:#9a6b00}
+#services .row>div:nth-child(6n+4) .ico{background:var(--sky);color:var(--brand)}
+#services .row>div:nth-child(6n+5) .ico{background:#f5d4de;color:#a8365a}
+#services .row>div:nth-child(6n+6) .ico{background:#e1dbf6;color:#5a45b8}
+.contact-card+*,.col-lg-5 .ico{background:var(--sky);color:var(--brand)}
+/* marquee + process */
+.marq{background:var(--paper2);border-color:var(--line)}.track span{color:#a8997c}.track i{color:var(--accent)}
+.fill{background:var(--accent)}.dot{border-color:var(--ink)}
+.step.on .dot{background:var(--brand);box-shadow:0 0 0 6px rgba(232,131,58,.28)}
+/* mission */
+.mission{background:#16395a}.mission::before{display:none}
+.glass{background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--accent);backdrop-filter:none;-webkit-backdrop-filter:none}
+.drive li{border-bottom:1px dashed rgba(20,36,58,.25)}
+.drive i{color:var(--accent)}
+#mission .eyebrow{color:var(--butter)!important;opacity:1!important}
+/* indexing */
+.idx{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);border-radius:14px}
+.idx:hover{box-shadow:6px 6px 0 var(--accent)}
+/* testimonials */
+.testi{background:var(--sage);color:var(--ink)}
+.testi .sec-title{color:var(--ink)}.testi .text-center p{color:var(--ink2)!important}
+.t-card{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);backdrop-filter:none}
+.t-slide:nth-child(odd) .t-card{transform:rotate(-1deg)}.t-slide:nth-child(even) .t-card{transform:rotate(1deg)}
+.t-slide .t-card:hover{transform:translateY(-6px) rotate(0);border-color:var(--ink);box-shadow:8px 8px 0 var(--accent)}
+.t-card .q{color:var(--accent)}.t-card p{color:var(--ink2)}
+.avatar{border:3px solid var(--ink)}.stars{color:#f2a900}
+.t-btn{background:#fff;color:var(--ink);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.t-btn:hover{background:var(--butter);border-color:var(--ink);transform:translate(-1px,-1px)}
+.dots button{background:rgba(20,36,58,.25)}.dots button.on{background:var(--ink)}
+/* cta / forms / footer */
+.cta{background:var(--brand);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);border-radius:24px}
+.cta::after{background:rgba(255,255,255,.1)}
+.contact-card{border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:20px}
+.form-control,.form-select{border:2px solid #d9cfba;border-radius:12px;background:#fffdf8}
+.form-control:focus,.form-select:focus{border-color:var(--ink);box-shadow:3px 3px 0 var(--accent)}
+footer{background:var(--ink)}
+.soc a:hover{background:var(--accent);color:var(--ink)}.news button{background:var(--accent);color:var(--ink)}.news button:hover{background:var(--butter)}
+#top{background:var(--ink);box-shadow:3px 3px 0 var(--accent)}
+@media(max-width:575px){.p1{width:230px}.p3{width:170px;padding:1.2rem 1rem}.hand{font-size:1.4rem}}
+html,body{overflow-x:clip;max-width:100%}
+.navbar{max-width:100vw;left:0;right:0}
+.navbar-toggler{touch-action:manipulation;padding:.35rem .5rem;position:relative;z-index:2;cursor:pointer}
+.navbar-toggler i{pointer-events:none}
+@media(max-width:991px){.row.g-5{--bs-gutter-x:1.5rem}.row.g-4{--bs-gutter-x:1.5rem}.navbar-collapse{max-height:calc(100vh - 90px);overflow-y:auto}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="nav">
+ <div class="container">
+  <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="Swaz Publication"><img class="site-logo" src="assets/logo.png" alt="Swaz Publication" onerror="logoFail(this)"></a>
+  <button class="navbar-toggler border-0 shadow-none" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Menu"><i class="bi bi-list fs-1"></i></button>
+  <div class="collapse navbar-collapse" id="menu">
+   <ul class="navbar-nav mx-auto">
+    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+    <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
+    <li class="nav-item"><a class="nav-link" href="#books">Publications</a></li>
+    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+   </ul>
+   <a href="#contact" class="btn btn-brand">Submit Manuscript <i class="bi bi-arrow-right ms-1"></i></a>
+  </div>
+ </div>
+</nav>
+
+<header class="hero" id="home">
+ <div class="container">
+  <div class="row align-items-center g-5">
+   <div class="col-lg-6">
+    <span class="pill rv"><i class="bi bi-geo-alt-fill"></i> New Delhi &middot; Working with authors worldwide</span>
+    <h1 class="mt-4 rv">Your research deserves to be <span class="grad-text">read.</span></h1>
+    <p class="lead my-4 rv">We’re a small team of editors and reviewers who take your manuscript from rough draft to published, indexed work. Editing, formatting, peer review, the lot, and we keep you posted at every step.</p>
+    <div class="d-flex flex-wrap gap-3 rv">
+     <a href="#contact" class="btn btn-brand btn-lg">Publish With Us</a>
+     <a href="#services" class="btn btn-ghost btn-lg">See what we do</a>
+    </div>
+    <div class="d-flex align-items-center gap-2 mt-4 rv"><svg width="46" height="34" viewBox="0 0 46 34" fill="none" style="flex:none"><path d="M42 30C28 32 8 28 6 8M6 8L2 17M6 8L15 12" stroke="#e8833a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="hand">Not sure where to start? Just write to us.</span></div>
+   </div>
+   <div class="col-lg-6">
+    <div class="stage" id="stage">
+     <div class="paper p1"><div class="tape"></div><span class="tag">PEER REVIEWED</span><h3 class="h5 mt-3">Advances in Sustainable Materials</h3><div class="line"></div><div class="line m"></div><div class="line s"></div><div class="line m"></div><div class="stamp">ACCEPTED</div></div>
+     <div class="paper p2"><div class="d-flex justify-content-between"><span class="tag">INDEXING SUPPORT</span><i class="bi bi-patch-check-fill text-success fs-4"></i></div><div class="line mt-3"></div><div class="line m"></div><div class="line"></div><div class="line s"></div></div>
+     <div class="paper p3"><div class="tape"></div><span class="hand" style="color:var(--ink);font-size:1.7rem">Submit, review, publish.<br>We’ll handle the rest!</span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="scroll-ind"></div>
+</header>
+
+<div class="container">
+ <div class="stats rv">
+  <div class="row text-center g-4">
+   <div class="col-6 col-md-3"><div class="num"><span data-count="1000">0</span>+</div><small>Researchers supported</small></div>
+   <div class="col-6 col-md-3"><div class="num"><span data-count="500">0</span>+</div><small>Articles published</small></div>
+   <div class="col-6 col-md-3"><div class="num"><span data-count="50">0</span>+</div><small>Countries reached</small></div>
+   <div class="col-6 col-md-3"><div class="num"><span data-count="98">0</span>%</div><small>Client satisfaction</small></div>
+  </div>
+ </div>
+</div>
+
+<section id="services">
+ <div class="container">
+  <div class="text-center mb-5 rv"><span class="eyebrow">What we do</span><h2 class="sec-title mt-2">Everything your manuscript needs, <span class="grad-text">under one roof</span></h2></div>
+  <div class="row g-4">
+   <div class="col-md-6 col-lg-4 rv"><div class="svc tilt"><div class="ico"><i class="bi bi-journal-richtext"></i></div><h3 class="h4">Journal Publishing</h3><p>We find the right journal for your paper and walk you through submission, so you’re never left guessing what happens next.</p></div></div>
+   <div class="col-md-6 col-lg-4 rv"><div class="svc tilt"><div class="ico"><i class="bi bi-book"></i></div><h3 class="h4">Book Publishing</h3><p>Monographs, edited volumes, textbooks. We help with layout, cover, ISBN and getting the finished book to readers.</p></div></div>
+   <div class="col-md-6 col-lg-4 rv"><div class="svc tilt"><div class="ico"><i class="bi bi-pencil-square"></i></div><h3 class="h4">Professional Editing</h3><p>Real editors tighten your language and structure while keeping your voice and your argument intact.</p></div></div>
+   <div class="col-md-6 col-lg-4 rv"><div class="svc tilt"><div class="ico"><i class="bi bi-layout-text-window-reverse"></i></div><h3 class="h4">Formatting</h3><p>Reference styles, tables, figures, templates. We match your paper to your target journal’s guidelines.</p></div></div>
+   <div class="col-md-6 col-lg-4 rv"><div class="svc tilt"><div class="ico"><i class="bi bi-people"></i></div><h3 class="h4">Peer Review</h3><p>Honest, constructive feedback from subject experts, so your paper is stronger when it goes out the door.</p></div></div>
+   <div class="col-md-6 col-lg-4 rv"><div class="svc tilt"><div class="ico"><i class="bi bi-globe2"></i></div><h3 class="h4">Global Indexing &amp; PhD Assistance</h3><p>Support with indexing for wider discoverability, plus guidance if you’re working your way through a PhD.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<section id="process">
+ <div class="container">
+  <div class="row g-5 align-items-center">
+   <div class="col-lg-5 rv"><span class="eyebrow">How it works</span><h2 class="sec-title mt-2 mb-3">From draft to <span class="grad-text">published</span> in four steps</h2><p class="lead">No confusion, no chasing. You always know where your manuscript stands.</p><a href="#contact" class="btn btn-brand mt-2">Start Now</a></div>
+   <div class="col-lg-7">
+    <div class="steps" id="steps"><div class="fill" id="fill"></div>
+     <div class="step rv"><div class="dot">01</div><div><h3>Submit your manuscript</h3><p>Share your paper and goals. We match it with the right journal or book track.</p></div></div>
+     <div class="step rv"><div class="dot">02</div><div><h3>Edit &amp; format</h3><p>Our editors refine language, structure, references and layout.</p></div></div>
+     <div class="step rv"><div class="dot">03</div><div><h3>Peer review</h3><p>Independent experts review and give actionable feedback.</p></div></div>
+     <div class="step rv"><div class="dot">04</div><div><h3>Publish &amp; get indexed</h3><p>Your work goes live and is supported for wide, global discoverability.</p></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="mission" id="mission">
+ <div class="container">
+  <div class="row g-5 align-items-center">
+   <div class="col-lg-6 rv"><span class="eyebrow" style="color:#fff;opacity:.85">Who we are</span><h2 class="sec-title mt-2 mb-3">Our Mission</h2><p class="lead text-white" style="opacity:.95">At Swaz Publication, our mission is to empower authors, researchers, and educators by offering reliable, fast, and globally accessible publication services. We are committed to maintaining academic integrity, ensuring transparent review processes, and helping scholars share their knowledge with the world.</p></div>
+   <div class="col-lg-6 rv">
+    <div class="glass">
+     <h3 class="h4 mb-3">What Drives Us?</h3>
+     <ul class="drive">
+      <li><i class="bi bi-stars"></i>To make quality publishing affordable &amp; accessible for all</li>
+      <li><i class="bi bi-stars"></i>To support authors through every step of their journey</li>
+      <li><i class="bi bi-stars"></i>To ensure fast, transparent, and ethical publication</li>
+      <li><i class="bi bi-stars"></i>To promote global visibility for academic &amp; creative works</li>
+      <li><i class="bi bi-stars"></i>To bring research and knowledge closer to readers worldwide</li>
+     </ul>
+     <a href="#services" class="btn-light-pill">Explore Our Services</a>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="books" style="background:#fff">
+ <div class="container">
+  <div class="text-center mb-5 rv"><span class="eyebrow">Publications</span><h2 class="sec-title mt-2">Scholarship that <span class="grad-text">stands out</span></h2></div>
+  <div class="row g-4 justify-content-center">
+   <div class="col-6 col-md-3 book rv"><div class="cover c1"><small>JOURNAL</small><b>Applied Sciences &amp; Engineering</b></div></div>
+   <div class="col-6 col-md-3 book rv"><div class="cover c2"><small>JOURNAL</small><b>Health &amp; Life Sciences</b></div></div>
+   <div class="col-6 col-md-3 book rv"><div class="cover c3"><small>BOOK</small><b>Management &amp; Social Studies</b></div></div>
+   <div class="col-6 col-md-3 book rv"><div class="cover c4"><small>BOOK</small><b>Technology &amp; Innovation</b></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="indexing" style="background:var(--bg)">
+ <div class="container">
+  <div class="text-center mb-4 rv"><span class="eyebrow">Visibility</span><h2 class="sec-title mt-2">Our Indexing <span class="grad-text">Partners</span></h2><p class="lead mx-auto" style="max-width:680px">We collaborate with globally recognized indexing agencies that provide high visibility and credibility to research articles.</p></div>
+ </div>
+ <div class="idx-wrap rv"><div class="idx-track" id="idxTrack"><div class="idx"><span style="color:#f58a1f;font-size:1.15rem">OPEN ACCESS</span></div><div class="idx"><span style="color:#4a6fa5;font-size:1.15rem">Google Scholar</span></div><div class="idx"><span style="color:#2b5d7a;font-size:1.15rem">Compendex</span></div><div class="idx"><span style="color:#3b6ea5;font-size:1.15rem">PubMed</span></div><div class="idx"><span style="color:#f58a1f;font-size:1.15rem">Scopus</span></div><div class="idx"><span style="color:#f58a1f;font-size:1.15rem">WEB OF SCIENCE</span></div></div></div>
+</section>
+
+<section class="testi" id="reviews">
+ <div class="container">
+  <div class="text-center mb-4 rv"><h2 class="sec-title">What Our Article Authors Say</h2><p class="mx-auto" style="max-width:720px;color:#c5d0e0">We’re proud to have helped hundreds of writers and researchers publish their articles. Here’s what some of them have to say about their experience.</p></div>
+  <div class="t-view rv" id="tView"><div class="t-track" id="tTrack"><div class="t-slide" data-i="0"><div class="t-card"><i class="bi bi-quote q"></i><div class="avatar" style="background:#2a78af">YL</div><p>Swaz Publication made my article publishing journey smooth and professional. Their editorial support and transparent process are truly commendable!</p><div class="stars" aria-label="5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><h3 class="h6 mb-0 fw-bold" style="font-family:inherit">Dr. Yumjao Leima</h3></div></div><div class="t-slide" data-i="1"><div class="t-card"><i class="bi bi-quote q"></i><div class="avatar" style="background:#18a58f">RS</div><p>A very supportive team! My research article was reviewed, edited, and published on time with complete transparency.</p><div class="stars" aria-label="5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><h3 class="h6 mb-0 fw-bold" style="font-family:inherit">Rohit Sharma</h3></div></div><div class="t-slide" data-i="2"><div class="t-card"><i class="bi bi-quote q"></i><div class="avatar" style="background:#c0568a">SK</div><p>Excellent formatting and editing services! My article looks so professional. Highly recommend Swaz Publication for article publishing.</p><div class="stars" aria-label="4 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><h3 class="h6 mb-0 fw-bold" style="font-family:inherit">Sneha Kapoor</h3></div></div><div class="t-slide" data-i="0"><div class="t-card"><i class="bi bi-quote q"></i><div class="avatar" style="background:#2a78af">YL</div><p>Swaz Publication made my article publishing journey smooth and professional. Their editorial support and transparent process are truly commendable!</p><div class="stars" aria-label="5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><h3 class="h6 mb-0 fw-bold" style="font-family:inherit">Dr. Yumjao Leima</h3></div></div><div class="t-slide" data-i="1"><div class="t-card"><i class="bi bi-quote q"></i><div class="avatar" style="background:#18a58f">RS</div><p>A very supportive team! My research article was reviewed, edited, and published on time with complete transparency.</p><div class="stars" aria-label="5 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><h3 class="h6 mb-0 fw-bold" style="font-family:inherit">Rohit Sharma</h3></div></div><div class="t-slide" data-i="2"><div class="t-card"><i class="bi bi-quote q"></i><div class="avatar" style="background:#c0568a">SK</div><p>Excellent formatting and editing services! My article looks so professional. Highly recommend Swaz Publication for article publishing.</p><div class="stars" aria-label="4 stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><h3 class="h6 mb-0 fw-bold" style="font-family:inherit">Sneha Kapoor</h3></div></div></div></div>
+  <div class="t-nav rv"><button class="t-btn" id="tPrev" aria-label="Previous"><i class="bi bi-chevron-left"></i></button><div class="dots" id="tDots"><button aria-label="Testimonial 1"></button><button aria-label="Testimonial 2"></button><button aria-label="Testimonial 3"></button></div><button class="t-btn" id="tNext" aria-label="Next"><i class="bi bi-chevron-right"></i></button></div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="cta text-center mb-5 rv"><h2 class="sec-title position-relative" style="z-index:2">Ready to see your name in print?</h2><p class="lead text-white position-relative" style="z-index:2;opacity:.9">Tell us about your research. We’ll reply with a tailored publishing plan.</p></div>
+  <div class="row g-4 justify-content-center">
+   <div class="col-lg-5 rv">
+    <h3 class="mb-1">Let’s talk</h3><div class="hand mb-4">We read every message ourselves.</div>
+    <div class="d-flex gap-3 mb-3"><span class="ico m-0"><i class="bi bi-envelope"></i></span><div><b>Email</b><br><a class="text-secondary text-decoration-none" href="mailto:submit@swazpub.com">submit@swazpub.com</a></div></div>
+    <div class="d-flex gap-3 mb-3"><span class="ico m-0"><i class="bi bi-telephone"></i></span><div><b>Phone</b><br><a class="text-secondary text-decoration-none" href="tel:+919217274901">+91 9217274901</a></div></div>
+    <div class="d-flex gap-3 mb-3"><span class="ico m-0"><i class="bi bi-geo-alt"></i></span><div><b>Address</b><br><span class="text-secondary">Westend Marg, Saidulajab, Saiyad UI Ajaib Extension, Saket, New Delhi 110030, Delhi, India</span></div></div>
+    <div class="d-flex gap-3"><span class="ico m-0"><i class="bi bi-clock"></i></span><div><b>Response time</b><br><span class="text-secondary">Within 24 hours</span></div></div>
+   </div>
+   <div class="col-lg-6 rv">
+    <form class="contact-card" id="form" novalidate>
+     <div class="row g-3">
+      <div class="col-md-6"><input class="form-control" placeholder="Full name" required></div>
+      <div class="col-md-6"><input type="email" class="form-control" placeholder="Email address" required></div>
+      <div class="col-12"><select class="form-select"><option>Journal Publishing</option><option>Book Publishing</option><option>Editing &amp; Formatting</option><option>PhD Assistance</option></select></div>
+      <div class="col-12"><textarea class="form-control" rows="4" placeholder="Tell us about your research" required></textarea></div>
+      <div class="col-12"><button class="btn btn-brand w-100" type="submit">Send Message <i class="bi bi-send ms-1"></i></button></div>
+      <div class="col-12"><div class="alert alert-success d-none mb-0" id="ok"><i class="bi bi-check-circle-fill me-1"></i> Thank you! We’ll be in touch shortly.</div></div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="container">
+  <div class="row g-4">
+   <div class="col-lg-3"><div class="logo-chip"><img class="site-logo" src="assets/logo.png" alt="Swaz Publication" onerror="logoFail(this)"></div><p class="text-white">Your trusted publishing partner for research papers, books, and creative manuscripts. Join our growing community of authors and readers today.</p>
+    <div class="soc"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a><a href="https://wa.me/919217274901" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a></div></div>
+   <div class="col-6 col-lg-2 offset-lg-1"><h6 class="mb-3">Quick Links</h6><ul class="list-unstyled small lh-lg"><li><a href="#mission">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Submit Manuscript</a></li><li><a href="#contact">Contact</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Terms &amp; Privacy</a></li><li><a href="#">Feedback</a></li><li><a href="#">Plagiarism Policy</a></li><li><a href="#">Publication Ethics</a></li><li><a href="#">Peer Review Policy</a></li></ul></div>
+   <div class="col-6 col-lg-3"><h6 class="mb-3">Contact Us</h6><ul class="list-unstyled small lh-base text-white"><li class="mb-2"><i class="bi bi-geo-alt-fill fi"></i>Westend Marg, Saidulajab, Saiyad UI Ajaib Extension, Saket, New Delhi 110030, Delhi, India</li><li class="mb-2"><i class="bi bi-envelope-fill fi"></i><a class="text-white" href="mailto:submit@swazpub.com">submit@swazpub.com</a></li><li class="mb-2"><i class="bi bi-telephone-fill fi"></i><a class="text-white" href="tel:+919217274901">+91 9217274901</a></li><li><i class="bi bi-whatsapp fi" style="color:#25d366"></i><a style="color:#25d366" href="https://wa.me/919217274901">Chat on WhatsApp</a></li></ul></div>
+   <div class="col-lg-3"><h6 class="mb-3">Subscribe to Our Newsletter</h6><p class="small text-white">Stay updated with the latest publishing insights, author success stories, and opportunities.</p>
+    <form class="news" id="news"><input type="email" placeholder="Enter your email" required aria-label="Email"><button>Subscribe</button></form><small class="d-none mt-2" id="nok" style="color:var(--brand2)">Subscribed! Thank you.</small></div>
+  </div>
+  <hr class="border-secondary mt-4"><p class="text-center small mb-0 text-white">© <span id="yr"></span> <a href="#home" style="color:var(--brand2)">Swaz Publication</a> — All Rights Reserved.</p>
+ </div>
+</footer>
+<button id="top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/bootstrap.bundle.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+// marquee
+const words=['Research Papers','Academic Journals','Scholarly Books','Peer Review','Global Indexing','PhD Assistance','Professional Editing'];
+$('#track').innerHTML=[...words,...words].map(w=>`<span><i class="bi bi-asterisk"></i>${w}</span>`).join('');
+// reveal + counters + steps
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');
+ e.target.querySelectorAll('[data-count]').forEach(c=>{const n=+c.dataset.count,t0=performance.now();
+  (function f(t){const k=Math.min((t-t0)/1800,1);c.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)});
+ if(e.target.classList.contains('step'))e.target.classList.add('on');io.unobserve(e.target)}),{threshold:.2});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+// scroll effects
+addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+ $('#bar').style.width=y/h*100+'%';$('#nav').classList.toggle('scrolled',y>40);$('#top').classList.toggle('show',y>600);
+ const s=$('#steps'),r=s.getBoundingClientRect();$('#fill').style.height=Math.max(0,Math.min(r.height,innerHeight*.6-r.top))+'px'},{passive:true});
+$('#top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+$$('.navbar-nav .nav-link,.navbar .btn').forEach(a=>a.addEventListener('click',()=>{const m=$('#menu');if(!m.classList.contains('show'))return;window.bootstrap?bootstrap.Collapse.getOrCreateInstance(m).hide():m.classList.remove('show')}));
+// fallback so the hamburger still works if the Bootstrap script fails to load
+if(!window.bootstrap){const t=$('.navbar-toggler');t.addEventListener('click',()=>{const m=$('#menu');m.classList.toggle('show');t.setAttribute('aria-expanded',m.classList.contains('show'))})}
+// hero parallax
+$('#stage').addEventListener('mousemove',e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ $$('.paper').forEach((p,i)=>p.style.transform=`translate(${x*(i+1)*14}px,${y*(i+1)*14}px) rotate(${[-4,3,4][i]}deg)`)});
+// testimonials slider (infinite loop, autoplay, arrows, dots, swipe)
+(function(){const tr=$('#tTrack'),dots=$$('#tDots button'),view=$('#tView'),N=3;let busy=false,timer;
+ const cur=()=>+tr.firstElementChild.dataset.i;
+ const mark=()=>dots.forEach((d,i)=>d.classList.toggle('on',i===cur()));
+ const w=()=>tr.firstElementChild.getBoundingClientRect().width;
+ function step(dir,cb){if(busy)return;busy=true;const x=w();
+  if(dir>0){tr.style.transition='transform .6s cubic-bezier(.4,.1,.2,1)';tr.style.transform=`translateX(-${x}px)`;
+   setTimeout(()=>{tr.style.transition='none';tr.appendChild(tr.firstElementChild);tr.style.transform='none';busy=false;mark();cb&&cb()},620)}
+  else{tr.style.transition='none';tr.insertBefore(tr.lastElementChild,tr.firstElementChild);tr.style.transform=`translateX(-${x}px)`;tr.offsetWidth;
+   tr.style.transition='transform .6s cubic-bezier(.4,.1,.2,1)';tr.style.transform='none';setTimeout(()=>{busy=false;mark();cb&&cb()},620)}}
+ function go(i){const n=(i-cur()+N)%N;if(!n)return;(function r(k){k&&step(1,()=>r(k-1))})(n)}
+ const play=()=>{clearInterval(timer);timer=setInterval(()=>step(1),5000)};
+ $('#tNext').onclick=()=>{step(1);play()};$('#tPrev').onclick=()=>{step(-1);play()};
+ dots.forEach((d,i)=>d.onclick=()=>{go(i);play()});
+ view.addEventListener('mouseenter',()=>clearInterval(timer));view.addEventListener('mouseleave',play);
+ let sx=null;view.addEventListener('pointerdown',e=>sx=e.clientX);
+ addEventListener('pointerup',e=>{if(sx===null)return;const d=e.clientX-sx;sx=null;if(Math.abs(d)>50){step(d<0?1:-1);play()}});
+ mark();play();})();
+// indexing track duplicate for seamless loop
+$('#idxTrack').innerHTML+=$('#idxTrack').innerHTML;
+// newsletter
+$('#news').addEventListener('submit',e=>{e.preventDefault();$('#nok').classList.remove('d-none');e.target.reset()});
+// form
+$('#form').addEventListener('submit',e=>{e.preventDefault();$('#ok').classList.remove('d-none');e.target.reset()});
+</script>
+</body>
+</html>
